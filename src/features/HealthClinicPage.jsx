@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import Login from "./loginPage/Login";
 
 const HealthClinicPage = () => {
-  return (
-    <div>Nada pra ser visto aqui!</div>
-  )
+  return <Login />;
 };
 
 export default HealthClinicPage;
