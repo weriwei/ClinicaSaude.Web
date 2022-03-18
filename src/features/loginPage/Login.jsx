@@ -36,7 +36,7 @@ const Login = () => {
             <SectionTitle title="Login:" fontSize={18} />
             <TextField
               label="Email"
-              variant="outlined"
+              variant="standard"
               type="email"
               required
               fullWidth
@@ -66,14 +66,19 @@ const Login = () => {
                 </RadioGroup>
               </Grid>
             </Grid>
-            <Grid container direction="row" spacing={2}>
-              <Grid item xs={6}>
-                <Button variant="contained" color="secondary" type="submit">
+            <Grid container direction="row" spacing={1}>
+              <Grid item xs={12}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  fullWidth
+                >
                   Conectar
                 </Button>
               </Grid>
-              <Grid item xs={6}>
-                <Button variant="contained" color="primary">
+              <Grid item xs={12}>
+                <Button variant="contained" color="gray" fullWidth>
                   Cadastrar
                 </Button>
               </Grid>

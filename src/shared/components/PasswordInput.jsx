@@ -13,7 +13,7 @@ const PasswordInput = ({ userLoginData, setUserPassword }) => {
 
   return (
     <TextField
-      variant="outlined"
+      variant="standard"
       type={showPassword ? "text" : "password"}
       required
       label="Senha"
