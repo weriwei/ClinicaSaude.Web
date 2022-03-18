@@ -4,7 +4,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { PasswordLength } from "@constants/constants";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 
-const PasswordInput = () => {
+const PasswordInput = ({ userLoginData, setUserPassword }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowPassword = () => {
@@ -19,9 +19,13 @@ const PasswordInput = () => {
       label="Senha"
       margin="dense"
       fullWidth
+      value={userLoginData.password}
+      onChange={(e) => {
+        setUserPassword({ ...userLoginData, password: e.target.value });
+      }}
       inputProps={{
-        maxLength: PasswordLength.max,
         minLength: PasswordLength.min,
+        maxLength: PasswordLength.max,
       }}
       InputProps={{
         endAdornment: (
