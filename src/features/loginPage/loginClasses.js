@@ -9,19 +9,19 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
   },
 
-  logo: { paddingBottom: "20px" },
+  logo: { paddingBottom: "10px" },
 
-  text: { fontFamily: "Comfortaa", fontSize: "50px", color: "#5C5C5F" },
+  text: { fontFamily: "Comfortaa", fontSize: "40px", color: "#5C5C5F" },
 
   loginButton: {
     backgroundColor: "#5C4DB1",
     borderRadius: "20px",
-    fontSize: "30px",
+    fontSize: "25px",
     fontFamily: "Comfortaa",
     textTransform: "none",
     color: "#FFFFFF",
-    width: "300px",
-    height: "65px",
+    width: "250px",
+    height: "60px",
   },
 
   signUpButton: {
@@ -45,8 +45,8 @@ const useStyles = makeStyles(() => ({
   },
 
   loginBox: {
-    width: "780px",
-    height: "700px",
+    width: "600px",
+    height: "550px",
     backgroundColor: "#FBFBFB",
     borderRadius: 50,
     display: "flex",

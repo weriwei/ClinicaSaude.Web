@@ -31,11 +31,11 @@ const Login = () => {
           <Logo />
         </Grid>
         <form className={classes.root}>
-          <Grid style={{ paddingBottom: "60px" }}>
+          <Grid style={{ paddingBottom: "30px" }}>
             <Typography className={classes.text}>Bem-vindo</Typography>
           </Grid>
           <Grid container direction="row">
-            <Grid item xs={12} style={{ paddingBottom: "50px" }}>
+            <Grid item xs={12} style={{ paddingBottom: "40px" }}>
               <TextField
                 label="E-mail"
                 variant="standard"
@@ -60,7 +60,7 @@ const Login = () => {
             container
             direction="row"
             spacing={1}
-            style={{ paddingTop: "50px" }}
+            style={{ paddingTop: "40px" }}
             align="center"
           >
             <Grid item xs={12}>
@@ -74,7 +74,7 @@ const Login = () => {
             </Grid>
             <Grid
               container
-              style={{ paddingTop: "12px" }}
+              style={{ paddingTop: "10px" }}
               justifyContent="center"
               direction="row"
             >
