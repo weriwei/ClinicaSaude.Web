@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import {
   Grid,
+  Paper,
   TextField,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
   Button,
+  Box,
+  Typography,
 } from "@material-ui/core";
 import useStyles from "./loginClasses";
-import SectionTitle from "@components/SectionTitle";
 import PasswordInput from "@components/PasswordInput";
+import Logo from "@components/Logo";
+import { baseStyle } from "@constants/baseStyles";
 
 const Login = () => {
   const classes = useStyles();
@@ -17,76 +18,76 @@ const Login = () => {
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
-    isPatient: "",
   });
-
-  const handleRadio = (event) => {
-    setUserLogin({ ...userLogin, isPatient: event.target.value === "patient" });
-  };
 
   useEffect(() => {
     console.log(userLogin);
   }, [userLogin]);
 
   return (
-    <>
-      <Grid container className={classes.formsContainer}>
-        <Grid item className={classes.line}>
-          <form className={classes.root}>
-            <SectionTitle title="Login:" fontSize={18} />
-            <TextField
-              label="Email"
-              variant="standard"
-              type="email"
-              required
-              fullWidth
-              margin="dense"
-              value={userLogin.email}
-              onChange={(e) =>
-                setUserLogin({ ...userLogin, email: e.target.value })
-              }
-            />
+    <Box className={classes.container}>
+      <Paper className={classes.loginBox} elevation={12}>
+        <Grid className={classes.logo}>
+          <Logo />
+        </Grid>
+        <form className={classes.root}>
+          <Grid style={{ paddingBottom: "60px" }}>
+            <Typography className={classes.text}>Login</Typography>
+          </Grid>
+          <Grid container direction="row">
+            <Grid item xs={12} style={{ paddingBottom: "50px" }}>
+              <TextField
+                label="E-mail"
+                variant="standard"
+                type="email"
+                required
+                fullWidth
+                value={userLogin.email}
+                onChange={(e) =>
+                  setUserLogin({ ...userLogin, email: e.target.value })
+                }
+                InputLabelProps={{
+                  style: baseStyle.style,
+                }}
+              />
+            </Grid>
             <PasswordInput
               userLoginData={userLogin}
               setUserPassword={setUserLogin}
             />
-            <Grid container justifyContent="flex-end">
+          </Grid>
+          <Grid
+            container
+            direction="row"
+            spacing={1}
+            style={{ paddingTop: "50px" }}
+            align="center"
+          >
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                type="submit"
+                className={classes.loginButton}
+              >
+                Conectar
+              </Button>
+            </Grid>
+            <Grid
+              container
+              style={{ paddingTop: "12px" }}
+              justifyContent="center"
+              direction="row"
+            >
               <Grid item>
-                <RadioGroup row required onChange={handleRadio}>
-                  <FormControlLabel
-                    value="patient"
-                    control={<Radio color="primary" required />}
-                    label="Paciente"
-                  />
-                  <FormControlLabel
-                    value="professional"
-                    control={<Radio color="primary" required />}
-                    label="Profissional"
-                  />
-                </RadioGroup>
-              </Grid>
-            </Grid>
-            <Grid container direction="row" spacing={1}>
-              <Grid item xs={12}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  type="submit"
-                  fullWidth
-                >
-                  Conectar
-                </Button>
-              </Grid>
-              <Grid item xs={12}>
-                <Button variant="contained" color="gray" fullWidth>
-                  Cadastrar
+                <Button type="text" className={classes.signUpButton}>
+                  * Clique aqui para se cadastrar
                 </Button>
               </Grid>
             </Grid>
-          </form>
-        </Grid>
-      </Grid>
-    </>
+          </Grid>
+        </form>
+      </Paper>
+    </Box>
   );
 };
 
