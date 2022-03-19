@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-import backgroundLines from "@assets/backgroundLines.png";
+import background from "@assets/background.png";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -31,10 +31,9 @@ const useStyles = makeStyles(() => ({
   },
 
   container: {
-    height: "100vh",
-    paddingTop: "120px",
+    height: "100%",
     backgroundColor: "#5C4DB1",
-    backgroundImage: `url(${backgroundLines})`,
+    backgroundImage: `url(${background})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -46,8 +45,8 @@ const useStyles = makeStyles(() => ({
   },
 
   loginBox: {
-    width: "800px",
-    height: "750px",
+    width: "780px",
+    height: "700px",
     backgroundColor: "#FBFBFB",
     borderRadius: 50,
     display: "flex",
