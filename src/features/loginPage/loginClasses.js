@@ -28,6 +28,13 @@ const useStyles = makeStyles(() => ({
     fontSize: "14px",
     fontFamily: "Comfortaa",
     textTransform: "none",
+    color: "#5C4DB1",
+  },
+
+  signUptext: {
+    fontSize: "14px",
+    fontFamily: "Comfortaa",
+    textTransform: "none",
   },
 
   container: {

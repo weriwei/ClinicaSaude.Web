@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Grid,
   Paper,
@@ -11,18 +11,33 @@ import useStyles from "./loginClasses";
 import PasswordInput from "@components/PasswordInput";
 import Logo from "@components/Logo";
 import { baseStyle } from "@constants/baseStyles";
+import { requestLogin } from "@hooks/useLogin";
+import GenericModal from "@components/genericModal/GenericModal";
 
 const Login = () => {
   const classes = useStyles();
-
+  const [modalErrorLogin, setModalErrorLogin] = useState(false);
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
   });
 
-  useEffect(() => {
-    console.log(userLogin);
-  }, [userLogin]);
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    const response = await requestLogin(userLogin);
+
+    setModalErrorLogin(true);
+  };
+
+  const modalButtons = [
+    {
+      onClick: () => setModalErrorLogin(false),
+      variant: "contained",
+      color: "secondary",
+      text: "Tentar Novamente",
+      id: 1,
+    },
+  ];
 
   return (
     <Box className={classes.container}>
@@ -70,6 +85,7 @@ const Login = () => {
                 variant="contained"
                 type="submit"
                 className={classes.loginButton}
+                onClick={handleLogin}
               >
                 Conectar
               </Button>
@@ -79,12 +95,25 @@ const Login = () => {
               style={{ paddingTop: "10px" }}
               justifyContent="center"
               direction="row"
+              alignItems="center"
             >
+              <Grid item xs={4}>
+                <Typography className={classes.signUptext}>
+                  *Não possui cadastro?{" "}
+                </Typography>
+              </Grid>
               <Grid item>
                 <Button variant="text" className={classes.signUpButton}>
-                  * Clique aqui para se cadastrar
+                  Cadastre aqui
                 </Button>
               </Grid>
+              <GenericModal
+                open={modalErrorLogin}
+                onClose={setModalErrorLogin}
+                title="Erro ao tentar efetuar o login"
+                type="error"
+                buttons={modalButtons}
+              />
             </Grid>
           </Grid>
         </form>
