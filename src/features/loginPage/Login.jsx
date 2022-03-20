@@ -34,8 +34,8 @@ const Login = () => {
           <Grid style={{ paddingBottom: "30px" }}>
             <Typography className={classes.text}>Bem-vindo</Typography>
           </Grid>
-          <Grid container direction="row">
-            <Grid item xs={12} style={{ paddingBottom: "40px" }}>
+          <Grid container direction="row" justifyContent="center">
+            <Grid item xs={8} style={{ paddingBottom: "15px" }}>
               <TextField
                 label="E-mail"
                 variant="standard"
@@ -51,16 +51,18 @@ const Login = () => {
                 }}
               />
             </Grid>
-            <PasswordInput
-              userLoginData={userLogin}
-              setUserPassword={setUserLogin}
-            />
+            <Grid item xs={8}>
+              <PasswordInput
+                userLoginData={userLogin}
+                setUserPassword={setUserLogin}
+              />
+            </Grid>
           </Grid>
           <Grid
             container
             direction="row"
             spacing={1}
-            style={{ paddingTop: "40px" }}
+            style={{ paddingTop: "30px" }}
             align="center"
           >
             <Grid item xs={12}>

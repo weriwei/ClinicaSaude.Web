@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
   },
 
   loginBox: {
-    width: "600px",
+    width: "500px",
     height: "550px",
     backgroundColor: "#FBFBFB",
     borderRadius: 50,
