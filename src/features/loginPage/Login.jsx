@@ -1,21 +1,14 @@
 import React, { useState } from "react";
-import {
-  Grid,
-  Paper,
-  TextField,
-  Button,
-  Box,
-  Typography,
-} from "@material-ui/core";
-import useStyles from "./loginClasses";
+import { Grid, Paper, Button, Box, Typography } from "@material-ui/core";
+import baseStyles from "@constants/baseStyles";
+import EmailInput from "@components/EmailInput";
 import PasswordInput from "@components/PasswordInput";
 import Logo from "@components/Logo";
-import { baseStyle } from "@constants/baseStyles";
 import { requestLogin } from "@hooks/useLogin";
 import GenericModal from "@components/genericModal/GenericModal";
 
 const Login = ({ login, setLogin }) => {
-  const classes = useStyles();
+  const classes = baseStyles();
   const [modalErrorLogin, setModalErrorLogin] = useState(false);
   const [userLogin, setUserLogin] = useState({
     email: "",
@@ -51,19 +44,9 @@ const Login = ({ login, setLogin }) => {
           </Grid>
           <Grid container direction="row" justifyContent="center">
             <Grid item xs={8} style={{ paddingBottom: "15px" }}>
-              <TextField
-                label="E-mail"
-                variant="standard"
-                type="email"
-                required
-                fullWidth
-                value={userLogin.email}
-                onChange={(e) =>
-                  setUserLogin({ ...userLogin, email: e.target.value })
-                }
-                InputLabelProps={{
-                  style: baseStyle.style,
-                }}
+              <EmailInput
+                userLoginData={userLogin}
+                setUserLogin={setUserLogin}
               />
             </Grid>
             <Grid item xs={8}>

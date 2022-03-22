@@ -3,7 +3,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { PasswordLength } from "@constants/constants";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
-import { baseStyle } from "@constants/baseStyles";
+import baseStyle from "@constants/baseStyles";
 
 const PasswordInput = ({ userLoginData, setUserPassword }) => {
   const [showPassword, setShowPassword] = useState(false);
