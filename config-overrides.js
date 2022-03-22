@@ -7,6 +7,7 @@ module.exports = function override(config) {
     "@components": "src/shared/components",
     "@assets": "src/shared/assets",
     "@constants": "src/shared/constants",
+    "@context": "src/context",
   })(config);
 
   return config;

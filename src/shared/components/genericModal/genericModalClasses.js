@@ -9,10 +9,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     padding: "10px 30px",
     borderRadius: 20,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#FBFBFB",
     "&:hover": {
       border: `2px solid`,
-      borderColor: theme.palette.primary.main,
+      borderColor: "#5C4DB1",
     },
   },
 
@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
     position: "fixed",
     margin: "-5px 3px",
     cursor: "pointer",
-    color: "red",
+    color: "#d60718",
     "&:hover": {
-      border: `2px solid`,
+      border: `1px solid`,
     },
   },
 
@@ -34,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
 
   buttons: {
     padding: "15px",
+    fontSize: "14px",
+    fontFamily: "Comfortaa",
+    textTransform: "none",
+    borderRadius: "20px",
+    color: "",
+    backgroundColor: "#d60718",
   },
 
   containerButton: {

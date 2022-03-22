@@ -14,7 +14,7 @@ import { baseStyle } from "@constants/baseStyles";
 import { requestLogin } from "@hooks/useLogin";
 import GenericModal from "@components/genericModal/GenericModal";
 
-const Login = () => {
+const Login = ({ login, setLogin }) => {
   const classes = useStyles();
   const [modalErrorLogin, setModalErrorLogin] = useState(false);
   const [userLogin, setUserLogin] = useState({
@@ -24,7 +24,7 @@ const Login = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const response = await requestLogin(userLogin);
+    requestLogin(userLogin);
 
     setModalErrorLogin(true);
   };
@@ -35,7 +35,7 @@ const Login = () => {
       variant: "contained",
       color: "secondary",
       text: "Tentar Novamente",
-      id: 1,
+      id: 0,
     },
   ];
 
@@ -103,7 +103,11 @@ const Login = () => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Button variant="text" className={classes.signUpButton}>
+                <Button
+                  variant="text"
+                  className={classes.signUpButton}
+                  onClick={() => setLogin(!login)}
+                >
                   Cadastre aqui
                 </Button>
               </Grid>
