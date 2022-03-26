@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Paper, Button, Box, Typography } from "@material-ui/core";
-import baseStyles from "@constants/baseStyles";
+import useStyles from "./loginClasses";
 import EmailInput from "@components/EmailInput";
 import PasswordInput from "@components/PasswordInput";
 import Logo from "@components/Logo";
@@ -8,7 +8,7 @@ import { requestLogin } from "@hooks/useLogin";
 import GenericModal from "@components/genericModal/GenericModal";
 
 const Login = ({ login, setLogin }) => {
-  const classes = baseStyles();
+  const classes = useStyles();
   const [modalErrorLogin, setModalErrorLogin] = useState(false);
   const [userLogin, setUserLogin] = useState({
     email: "",
@@ -88,7 +88,7 @@ const Login = ({ login, setLogin }) => {
               <Grid item>
                 <Button
                   variant="text"
-                  className={classes.signUpButton}
+                  className={classes.signUptext}
                   onClick={() => setLogin(!login)}
                 >
                   Cadastre aqui

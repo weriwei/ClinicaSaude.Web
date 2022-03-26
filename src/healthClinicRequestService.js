@@ -12,6 +12,18 @@ class healthClinicRequestService {
       };
     }
   };
+
+  userSignup = async (userData) => {
+    try {
+      const response = await api.post("user/signup", userData);
+
+      return response.data;
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  };
 }
 
 export default new healthClinicRequestService();

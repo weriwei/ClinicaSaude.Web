@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import background from "@assets/background.png";
 
-const baseStyles = makeStyles(() => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -33,7 +33,7 @@ const baseStyles = makeStyles(() => ({
     fontFamily: "Comfortaa",
     textTransform: "none",
     color: "#5C4DB1",
-    width: "170px",
+    width: "200px",
     height: "50px",
   },
 
@@ -44,7 +44,7 @@ const baseStyles = makeStyles(() => ({
     fontFamily: "Comfortaa",
     textTransform: "none",
     color: "#FFFFFF",
-    width: "170px",
+    width: "200px",
     height: "50px",
   },
 
@@ -75,9 +75,9 @@ const baseStyles = makeStyles(() => ({
     margin: "0",
   },
 
-  loginBox: {
-    width: "500px",
-    height: "550px",
+  signupBox: {
+    width: "600px",
+    height: "650px",
     backgroundColor: "#FBFBFB",
     borderRadius: 50,
     display: "flex",
@@ -87,4 +87,4 @@ const baseStyles = makeStyles(() => ({
   },
 }));
 
-export default baseStyles;
+export default useStyles;

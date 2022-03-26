@@ -16,14 +16,14 @@ const DateInput = ({ setUserData, userData }) => {
       <MuiPickersUtilsProvider utils={DateFnsUtils} locale={br}>
         <KeyboardDatePicker
           value={userData.birthday}
-          onChange={onDateChange}
-          minDate={new Date("01/01/1900")}
+          onChange={(date) => onDateChange(date)}
           disableFuture
-          format="dd/MM/yyyy"
-          inputVariant="outlined"
+          minDate
+          minDateMessage="Data deve ser superior a 01/01/1900"
+          inputVariant="standard"
           label="Data de nascimento"
           required
-          fullWidth
+          format="dd/MM/yyyy"
         />
       </MuiPickersUtilsProvider>
     </>
