@@ -3,7 +3,7 @@ import api from "./services/api";
 class healthClinicRequestService {
   userLogin = async (userData) => {
     try {
-      const response = await api.post("user/login", userData);
+      const response = await api.post("api/v1/User/login", userData);
 
       return response.data;
     } catch (error) {
@@ -15,7 +15,7 @@ class healthClinicRequestService {
 
   userSignup = async (userData) => {
     try {
-      const response = await api.post("user/signup", userData);
+      const response = await api.post("api/v1/User/signup", userData);
 
       return response.data;
     } catch (error) {

@@ -9,13 +9,21 @@ import {
 } from "@material-ui/core";
 import Logo from "@components/Logo";
 import useStyles from "./signupClasses";
-import { NAME_MAX_LENGTH } from "@constants/constants";
+import {
+  NAME_MAX_LENGTH,
+  STREET_MAX_LENGTH,
+  NUMBER_MAX_LENGTH,
+} from "@constants/constants";
 import EmailInput from "@components/EmailInput";
 import PasswordInput from "@components/PasswordInput";
 import CpfInput from "@components/CpfInput";
 import DateInput from "@components/DateInput";
 import GenderSelectInput from "@components/GenderSelectInput";
 import { requestSignup } from "@hooks/useSignup";
+import {
+  CEP_LENGTH,
+  COMPLEMENT_MAX_LENGTH,
+} from "../../shared/constants/constants";
 
 const Signup = ({ login, setLogin }) => {
   const classes = useStyles();
@@ -26,6 +34,12 @@ const Signup = ({ login, setLogin }) => {
     documentNumber: "",
     gender: "",
     birthday: "01/01/1990",
+    street: "",
+    number: "",
+    complement: "",
+    district: "",
+    city: "",
+    zipcode: "",
   });
 
   const handleSignup = async (event) => {
@@ -79,6 +93,95 @@ const Signup = ({ login, setLogin }) => {
               </Grid>
               <Grid item xs={6}>
                 <DateInput userData={userData} setUserData={setUserData} />
+              </Grid>
+            </Grid>
+            <Grid container item xs={9}>
+              <Grid item xs={10} style={{ paddingRight: "10px" }}>
+                <TextField
+                  label="Rua"
+                  variant="standard"
+                  type="text"
+                  required
+                  inputProps={{ maxLength: STREET_MAX_LENGTH }}
+                  fullWidth
+                  onChange={(e) =>
+                    setUserData({ ...userData, street: e.target.value })
+                  }
+                  value={userData.street}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <TextField
+                  label="Número"
+                  variant="standard"
+                  type="text"
+                  required
+                  inputProps={{ maxLength: NUMBER_MAX_LENGTH }}
+                  fullWidth
+                  onChange={(e) =>
+                    setUserData({ ...userData, number: e.target.value })
+                  }
+                  value={userData.number}
+                />
+              </Grid>
+            </Grid>
+            <Grid container item xs={9}>
+              <Grid item xs={6} style={{ paddingRight: "10px" }}>
+                <TextField
+                  label="Complemento"
+                  variant="standard"
+                  type="text"
+                  inputProps={{ maxLength: COMPLEMENT_MAX_LENGTH }}
+                  fullWidth
+                  onChange={(e) =>
+                    setUserData({ ...userData, complement: e.target.value })
+                  }
+                  value={userData.complement}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  label="Bairro"
+                  variant="standard"
+                  type="text"
+                  required
+                  inputProps={{ maxLength: STREET_MAX_LENGTH }}
+                  fullWidth
+                  onChange={(e) =>
+                    setUserData({ ...userData, district: e.target.value })
+                  }
+                  value={userData.district}
+                />
+              </Grid>
+            </Grid>
+            <Grid container item xs={9}>
+              <Grid item xs={6} style={{ paddingRight: "10px" }}>
+                <TextField
+                  label="Cidade"
+                  variant="standard"
+                  type="text"
+                  required
+                  inputProps={{ maxLength: STREET_MAX_LENGTH }}
+                  fullWidth
+                  onChange={(e) =>
+                    setUserData({ ...userData, city: e.target.value })
+                  }
+                  value={userData.city}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  label="Cep"
+                  variant="standard"
+                  type="text"
+                  required
+                  inputProps={{ maxLength: CEP_LENGTH }}
+                  fullWidth
+                  onChange={(e) =>
+                    setUserData({ ...userData, zipcode: e.target.value })
+                  }
+                  value={userData.zipcode}
+                />
               </Grid>
             </Grid>
             <Grid

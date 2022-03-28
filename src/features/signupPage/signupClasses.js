@@ -9,7 +9,7 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
   },
 
-  logo: { paddingBottom: "10px" },
+  logo: { paddingBottom: "5px" },
 
   text: { fontFamily: "Comfortaa", fontSize: "40px", color: "#5C5C5F" },
 
@@ -77,7 +77,7 @@ const useStyles = makeStyles(() => ({
 
   signupBox: {
     width: "600px",
-    height: "650px",
+    height: "850px",
     backgroundColor: "#FBFBFB",
     borderRadius: 50,
     display: "flex",
