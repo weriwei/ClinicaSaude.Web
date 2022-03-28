@@ -18,15 +18,14 @@ import EmailInput from "@components/EmailInput";
 import PasswordInput from "@components/PasswordInput";
 import CpfInput from "@components/CpfInput";
 import DateInput from "@components/DateInput";
+import GenericModal from "@components/genericModal/GenericModal";
 import GenderSelectInput from "@components/GenderSelectInput";
 import { requestSignup } from "@hooks/useSignup";
-import {
-  CEP_LENGTH,
-  COMPLEMENT_MAX_LENGTH,
-} from "../../shared/constants/constants";
+import { CEP_LENGTH, COMPLEMENT_MAX_LENGTH } from "@constants/constants";
 
 const Signup = ({ login, setLogin }) => {
   const classes = useStyles();
+  const [modalErrorSignup, setModalErrorSignup] = useState(false);
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -44,7 +43,9 @@ const Signup = ({ login, setLogin }) => {
 
   const handleSignup = async (event) => {
     event.preventDefault();
-    requestSignup(userData);
+    const response = await requestSignup(userData);
+    if (response) {
+    } else setModalErrorSignup(!modalErrorSignup);
   };
 
   return (
@@ -53,7 +54,7 @@ const Signup = ({ login, setLogin }) => {
         <Grid className={classes.logo}>
           <Logo />
         </Grid>
-        <form className={classes.root}>
+        <form className={classes.root} onSubmit={handleSignup}>
           <Grid style={{ paddingBottom: "20px" }}>
             <Typography className={classes.text}>Cadastro</Typography>
           </Grid>
@@ -204,7 +205,21 @@ const Signup = ({ login, setLogin }) => {
                   variant="contained"
                   type="submit"
                   className={classes.signupButton}
-                  onClick={handleSignup}
+                  disabled={
+                    !(
+                      userData.name &&
+                      userData.birthday &&
+                      userData.documentNumber &&
+                      userData.email &&
+                      userData.gender &&
+                      userData.password &&
+                      userData.zipcode &&
+                      userData.street &&
+                      userData.city &&
+                      userData.number &&
+                      userData.district
+                    )
+                  }
                 >
                   Cadastrar
                 </Button>
@@ -228,6 +243,21 @@ const Signup = ({ login, setLogin }) => {
                 </Button>
               </Grid>
             </Grid>
+            <GenericModal
+              open={modalErrorSignup}
+              onClose={setModalErrorSignup}
+              title="Erro ao tentar efetuar o cadastro"
+              type="error"
+              buttons={[
+                {
+                  onClick: () => setModalErrorSignup(false),
+                  variant: "contained",
+                  color: "secondary",
+                  text: "Tentar Novamente",
+                  id: 0,
+                },
+              ]}
+            />
           </Grid>
         </form>
       </Paper>
