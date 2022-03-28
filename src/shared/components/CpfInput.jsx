@@ -38,7 +38,7 @@ NumberFormatCustom.defaultProps = {
 
 const CpfInput = ({ setUserData, userData }) => {
   const handleOnChange = (event) => {
-    setUserData({ ...userData, document: event.target.value });
+    setUserData({ ...userData, documentNumber: event.target.value });
   };
   return (
     <TextField
@@ -46,7 +46,7 @@ const CpfInput = ({ setUserData, userData }) => {
       variant="standard"
       margin="dense"
       required
-      value={userData.document}
+      value={userData.documentNumber}
       onChange={handleOnChange}
       fullWidth
       InputProps={{
