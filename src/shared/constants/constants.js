@@ -13,6 +13,8 @@ export const COMPLEMENT_MAX_LENGTH = 30;
 
 export const CEP_LENGTH = 8;
 
+export const EMAIL_MAX_LENGTH = 30;
+
 export const genders = [
   {
     id: 0,
