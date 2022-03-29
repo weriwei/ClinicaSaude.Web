@@ -5,7 +5,7 @@ class healthClinicRequestService {
     try {
       const response = await api.post("api/v1/User/login", userData);
 
-      return response.data;
+      return response;
     } catch (error) {
       return {
         error,
@@ -17,7 +17,7 @@ class healthClinicRequestService {
     try {
       const response = await api.post("api/v1/User/signup", userData);
 
-      return response.data;
+      return response;
     } catch (error) {
       return {
         error,

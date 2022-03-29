@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Box,
   Grid,
@@ -9,11 +9,7 @@ import {
 } from "@material-ui/core";
 import Logo from "@components/Logo";
 import useStyles from "./signupClasses";
-import {
-  NAME_MAX_LENGTH,
-  STREET_MAX_LENGTH,
-  NUMBER_MAX_LENGTH,
-} from "@constants/constants";
+import { Context } from "@context/userContext";
 import EmailInput from "@components/EmailInput";
 import PasswordInput from "@components/PasswordInput";
 import CpfInput from "@components/CpfInput";
@@ -22,8 +18,14 @@ import GenericModal from "@components/genericModal/GenericModal";
 import GenderSelectInput from "@components/GenderSelectInput";
 import { requestSignup } from "@hooks/useSignup";
 import { CEP_LENGTH, COMPLEMENT_MAX_LENGTH } from "@constants/constants";
+import {
+  NAME_MAX_LENGTH,
+  STREET_MAX_LENGTH,
+  NUMBER_MAX_LENGTH,
+} from "@constants/constants";
 
 const Signup = ({ login, setLogin }) => {
+  const { setAuthenticated } = useContext(Context);
   const classes = useStyles();
   const [modalErrorSignup, setModalErrorSignup] = useState(false);
   const [userData, setUserData] = useState({
@@ -44,8 +46,8 @@ const Signup = ({ login, setLogin }) => {
   const handleSignup = async (event) => {
     event.preventDefault();
     const response = await requestSignup(userData);
-    if (response) {
-    } else setModalErrorSignup(!modalErrorSignup);
+    if (response.status === 200) setAuthenticated(true);
+    else setModalErrorSignup(!modalErrorSignup);
   };
 
   return (
@@ -213,7 +215,7 @@ const Signup = ({ login, setLogin }) => {
                       userData.email &&
                       userData.gender &&
                       userData.password &&
-                      userData.zipcode &&
+                      userData.zipcode.length === CEP_LENGTH &&
                       userData.street &&
                       userData.city &&
                       userData.number &&

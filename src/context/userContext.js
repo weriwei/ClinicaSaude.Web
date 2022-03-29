@@ -7,6 +7,7 @@ const Provider = ({ children }) => {
 
   const getActiveStep = () => {
     if (!authenticated) return 1;
+    if (authenticated) return 2;
   };
 
   return (

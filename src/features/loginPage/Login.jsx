@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Grid, Paper, Button, Box, Typography } from "@material-ui/core";
 import useStyles from "./loginClasses";
 import EmailInput from "@components/EmailInput";
@@ -6,8 +6,11 @@ import PasswordInput from "@components/PasswordInput";
 import Logo from "@components/Logo";
 import { requestLogin } from "@hooks/useLogin";
 import GenericModal from "@components/genericModal/GenericModal";
+import { Context } from "@context/userContext";
+import { PasswordLength } from "../../shared/constants/constants";
 
 const Login = ({ login, setLogin }) => {
+  const { setAuthenticated } = useContext(Context);
   const classes = useStyles();
   const [modalErrorLogin, setModalErrorLogin] = useState(false);
   const [userLogin, setUserLogin] = useState({
@@ -17,9 +20,9 @@ const Login = ({ login, setLogin }) => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    requestLogin(userLogin);
-
-    setModalErrorLogin(true);
+    const response = await requestLogin(userLogin);
+    if (response.status === 200) setAuthenticated(true);
+    else setModalErrorLogin(true);
   };
 
   const modalButtons = [
@@ -69,6 +72,13 @@ const Login = ({ login, setLogin }) => {
                 type="submit"
                 className={classes.loginButton}
                 onClick={handleLogin}
+                disabled={
+                  !(
+                    userLogin.email &&
+                    userLogin.password.length >= PasswordLength.min &&
+                    userLogin.password.length <= PasswordLength.max
+                  )
+                }
               >
                 Conectar
               </Button>
@@ -88,7 +98,7 @@ const Login = ({ login, setLogin }) => {
               <Grid item>
                 <Button
                   variant="text"
-                  className={classes.signUptext}
+                  className={classes.signUpButton}
                   onClick={() => setLogin(!login)}
                 >
                   Cadastre aqui
