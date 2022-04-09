@@ -46,7 +46,7 @@ const Signup = ({ login, setLogin }) => {
   const handleSignup = async (event) => {
     event.preventDefault();
     const response = await requestSignup(userData);
-    if (response.status === 200) setAuthenticated(true);
+    if (response.status === 201) setAuthenticated(true);
     else setModalErrorSignup(!modalErrorSignup);
   };
 
@@ -136,6 +136,7 @@ const Signup = ({ login, setLogin }) => {
                   type="text"
                   inputProps={{ maxLength: COMPLEMENT_MAX_LENGTH }}
                   fullWidth
+                  required
                   onChange={(e) =>
                     setUserData({ ...userData, complement: e.target.value })
                   }
