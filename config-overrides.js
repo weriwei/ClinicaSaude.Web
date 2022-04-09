@@ -8,6 +8,7 @@ module.exports = function override(config) {
     "@assets": "src/shared/assets",
     "@constants": "src/shared/constants",
     "@context": "src/context",
+    "@helper": "src/shared/helper",
   })(config);
 
   return config;

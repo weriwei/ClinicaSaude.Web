@@ -23,6 +23,7 @@ import {
   STREET_MAX_LENGTH,
   NUMBER_MAX_LENGTH,
 } from "@constants/constants";
+import { isOnlyDigits } from "@helper/inputHelper";
 
 const Signup = ({ login, setLogin }) => {
   const { setAuthenticated } = useContext(Context);
@@ -119,10 +120,14 @@ const Signup = ({ login, setLogin }) => {
                   variant="standard"
                   type="text"
                   required
-                  inputProps={{ maxLength: NUMBER_MAX_LENGTH }}
+                  inputProps={{
+                    maxLength: NUMBER_MAX_LENGTH,
+                  }}
                   fullWidth
                   onChange={(e) =>
-                    setUserData({ ...userData, number: e.target.value })
+                    isOnlyDigits(e.target.value)
+                      ? setUserData({ ...userData, number: e.target.value })
+                      : setUserData({ ...userData, number: "" })
                   }
                   value={userData.number}
                 />
@@ -182,7 +187,9 @@ const Signup = ({ login, setLogin }) => {
                   inputProps={{ maxLength: CEP_LENGTH }}
                   fullWidth
                   onChange={(e) =>
-                    setUserData({ ...userData, zipcode: e.target.value })
+                    isOnlyDigits(e.target.value)
+                      ? setUserData({ ...userData, zipcode: e.target.value })
+                      : setUserData({ ...userData, zipcode: "" })
                   }
                   value={userData.zipcode}
                 />
