@@ -24,6 +24,20 @@ class healthClinicRequestManager {
     };
     return healthClinicRequestService.userSignup(payload);
   };
+
+  getDependents = async (userId) =>
+    healthClinicRequestService.getDependents(userId);
+
+  dependentSignup = async (dependetData, userId) => {
+    const payload = {
+      UserId: userId,
+      Name: dependetData.name,
+      Gender: dependetData.gender,
+      Document: dependetData.documentNumber,
+      Birthday: dependetData.birthday,
+    };
+    return healthClinicRequestService.dependentSignup(payload);
+  };
 }
 
 export default new healthClinicRequestManager();

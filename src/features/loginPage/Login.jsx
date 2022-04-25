@@ -10,7 +10,7 @@ import { Context } from "@context/userContext";
 import { PasswordLength } from "../../shared/constants/constants";
 
 const Login = ({ login, setLogin }) => {
-  const { setAuthenticated } = useContext(Context);
+  const { handleAuthenticate, setAuthenticated } = useContext(Context);
   const classes = useStyles();
   const [modalErrorLogin, setModalErrorLogin] = useState(false);
   const [userLogin, setUserLogin] = useState({
@@ -21,8 +21,10 @@ const Login = ({ login, setLogin }) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     const response = await requestLogin(userLogin);
-    if (response.status === 200) setAuthenticated(true);
-    else setModalErrorLogin(true);
+    if (response.status === 200) {
+      setAuthenticated(true);
+      handleAuthenticate(response);
+    } else setModalErrorLogin(true);
   };
 
   const modalButtons = [

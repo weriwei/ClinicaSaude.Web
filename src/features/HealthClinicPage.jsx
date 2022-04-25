@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "@context/userContext";
 import UserContent from "@components/UserContent";
-import HomeClinicPage from "./homeClinicPage/HomeClinicPage";
+import Router from "@src/Router";
 
 export const contentsPage = Object.freeze({
   1: UserContent,
-  2: HomeClinicPage,
+  2: Router,
 });
 
 const getStepContent = (stepIndex) => {

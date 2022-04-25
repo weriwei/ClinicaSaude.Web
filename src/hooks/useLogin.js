@@ -1,7 +1,7 @@
 import healthClinicRequestManager from "../healthClinicRequestManager";
 
-export const requestLogin = async (userData) => {
-  const response = await healthClinicRequestManager.userLogin(userData);
+export const requestLogin = async (userLogin) => {
+  const response = await healthClinicRequestManager.userLogin(userLogin);
 
   return response;
 };

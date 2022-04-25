@@ -46,7 +46,7 @@ const GenericModal = ({ open, onClose, title, buttons, type }) => {
                 onClick={button.onClick}
                 color={button.color}
                 variant={button.variant}
-                className={classes.buttons}
+                className={button.id === 0 ? classes.button0 : classes.button1}
               >
                 {button.text}
               </Button>

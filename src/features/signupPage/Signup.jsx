@@ -14,11 +14,12 @@ import EmailInput from "@components/EmailInput";
 import PasswordInput from "@components/PasswordInput";
 import CpfInput from "@components/CpfInput";
 import DateInput from "@components/DateInput";
-import GenericModal from "@components/genericModal/GenericModal";
 import GenderSelectInput from "@components/GenderSelectInput";
+import GenericModal from "@components/genericModal/GenericModal";
 import { requestSignup } from "@hooks/useSignup";
-import { CEP_LENGTH, COMPLEMENT_MAX_LENGTH } from "@constants/constants";
 import {
+  CEP_LENGTH,
+  COMPLEMENT_MAX_LENGTH,
   NAME_MAX_LENGTH,
   STREET_MAX_LENGTH,
   NUMBER_MAX_LENGTH,
@@ -35,7 +36,7 @@ const Signup = ({ login, setLogin }) => {
     password: "",
     documentNumber: "",
     gender: "",
-    birthday: "01/01/1990",
+    birthday: "1999-11-25T03:00:00.000Z",
     street: "",
     number: "",
     complement: "",

@@ -21,16 +21,21 @@ export const genders = [
     value: "female",
     label: "Feminino",
   },
-
   {
     id: 1,
     value: "male",
     label: "Masculino",
   },
-
   {
     id: 2,
     value: "helicopter",
     label: "Helicóptero",
   },
 ];
+
+export const dependentInitialState = {
+  name: "",
+  documentNumber: "",
+  gender: "",
+  birthday: "1999-11-25T03:00:00.000Z",
+};

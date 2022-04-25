@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "@context/userContext";
 
 const HomeClinicPage = () => {
-  return <div>Bem-vindo!</div>;
+  const { userData } = useContext(Context);
+
+  const welcome = userData.name
+    ? `Bem-vindo, ${userData?.name.split(" ")[0]}!`
+    : "Bem-vindo!";
+
+  return (
+    <>
+      <div>{welcome}</div>
+    </>
+  );
 };
 
 export default HomeClinicPage;

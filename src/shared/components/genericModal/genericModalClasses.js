@@ -32,14 +32,28 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "10px",
   },
 
-  buttons: {
+  button0: {
     padding: "15px",
     fontSize: "14px",
     fontFamily: "Comfortaa",
     textTransform: "none",
     borderRadius: "20px",
-    color: "",
     backgroundColor: "#d60718",
+    "&:hover": {
+      backgroundColor: "#d60718",
+    },
+  },
+
+  button1: {
+    padding: "15px",
+    fontSize: "14px",
+    fontFamily: "Comfortaa",
+    textTransform: "none",
+    borderRadius: "20px",
+    backgroundColor: "#5C4DB1",
+    "&:hover": {
+      backgroundColor: "5C4DB1",
+    },
   },
 
   containerButton: {

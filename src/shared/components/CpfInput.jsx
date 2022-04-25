@@ -40,6 +40,7 @@ const CpfInput = ({ setUserData, userData }) => {
   const handleOnChange = (event) => {
     setUserData({ ...userData, documentNumber: event.target.value });
   };
+
   return (
     <TextField
       label="CPF"
