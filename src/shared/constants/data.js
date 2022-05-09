@@ -7,11 +7,29 @@ export const dependents = [
   {
     Name: "Huga Brandão de Oliveira",
     Gender: "Masculino",
-    Birthday: "30/11/2000",
+    Birthday: "30/11/1999",
   },
   {
     Name: "Lorena Simões de Ávila",
     Gender: "Feminino",
-    Birthday: "31/08/2001",
+    Birthday: "31/08/2000",
+  },
+];
+
+export const specialitys = [
+  {
+    tittle: "Cardiologista",
+    description:
+      "Cardiologia é a especialidade médica que se ocupa do diagnóstico e tratamento das doenças que acometem o coração bem como os outros componentes do sistema circulatório.",
+  },
+  {
+    tittle: "Clínico geral",
+    description:
+      "Clínica Médica é a especialidade médica que trata de pacientes adultos. Inclui o estudo das doenças de adultos, não cirúrgicas, não obstétricas e não ginecológicas, sendo a especialidade médica a partir da qual se diferenciaram todas as outras áreas clínicas.",
+  },
+  {
+    tittle: "Pediatra",
+    description:
+      "A pediatria é a especialidade médica dedicada à assistência à criança e ao adolescente, nos seus diversos aspectos, sejam eles preventivos ou curativos.",
   },
 ];

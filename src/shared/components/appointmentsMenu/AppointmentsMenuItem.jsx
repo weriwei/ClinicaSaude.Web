@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import useStyles from "@constants/MenuItemsClasses";
 import { routes } from "@constants/routes";
 
-const DependentsMenuItem = () => {
+const AppointmentsMenuItem = () => {
   const classes = useStyles();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState();
@@ -16,12 +16,12 @@ const DependentsMenuItem = () => {
 
   const handleRegister = () => {
     setAnchorEl(null);
-    history.push(routes.dependents.register);
+    history.push(routes.appointments.schedule);
   };
 
   const handleView = () => {
     setAnchorEl(null);
-    history.push(routes.dependents.view);
+    history.push(routes.appointments.view);
   };
 
   return (
@@ -32,7 +32,7 @@ const DependentsMenuItem = () => {
         className={classes.buttons}
         onClick={handleClick}
       >
-        Dependentes
+        Consultas
       </Button>
       <Popover
         anchorEl={anchorEl}
@@ -54,4 +54,4 @@ const DependentsMenuItem = () => {
   );
 };
 
-export default DependentsMenuItem;
+export default AppointmentsMenuItem;

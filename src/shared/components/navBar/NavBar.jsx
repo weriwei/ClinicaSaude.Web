@@ -6,6 +6,7 @@ import Logo from "@components/Logo";
 import { routes } from "@constants/routes";
 import DependentsMenuItem from "@components/dependentsMenu/DependentsMenuItem";
 import { useHistory } from "react-router";
+import AppointmentsMenuItem from "@components/appointmentsMenu/AppointmentsMenuItem";
 
 const NavBar = () => {
   const classes = useStyles();
@@ -31,9 +32,7 @@ const NavBar = () => {
           </Grid>
 
           <Grid item xs={4}>
-            <Button fullWidth size="large" className={classes.buttons}>
-              Consultas
-            </Button>
+            <AppointmentsMenuItem />
           </Grid>
 
           <Grid item xs={4}>

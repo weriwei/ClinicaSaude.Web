@@ -6,4 +6,8 @@ export const routes = Object.freeze({
     register: "/dependent/register",
     view: "/dependent/view",
   },
+  appointments: {
+    schedule: "/appointments/schedule",
+    view: "/appointments/view",
+  },
 });

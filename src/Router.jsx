@@ -5,6 +5,8 @@ import WithHeader from "@hoc/WithHeader";
 import HomeClinicPage from "@features/homeClinicPage/HomeClinicPage";
 import DependentsRegisterPage from "@features/dependentsPages/DependentsRegisterPage";
 import DependentsViewPage from "@features/dependentsPages/DependentsViewPage";
+import AppointmentsSchedulePage from "@features/appointmentsPages/AppointmentsSchedulePage";
+import AppointmentsViewPage from "@features/appointmentsPages/AppointmentsViewPage";
 
 const Router = () => (
   <BrowserRouter>
@@ -23,6 +25,16 @@ const Router = () => (
         exact
         path={routes.dependents.view}
         render={WithHeader(DependentsViewPage)}
+      />
+      <Route
+        exact
+        path={routes.appointments.schedule}
+        render={WithHeader(AppointmentsSchedulePage)}
+      />
+      <Route
+        exact
+        path={routes.appointments.view}
+        render={WithHeader(AppointmentsViewPage)}
       />
       <Redirect path="*" to={routes.home.path} />
     </Switch>
