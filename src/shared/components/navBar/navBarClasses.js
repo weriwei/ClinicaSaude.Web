@@ -20,6 +20,7 @@ const useStyles = makeStyles(() => ({
 
   container: {
     width: "100%",
+    height: "80px",
     paddingRight: "20px",
     paddingTop: "5px",
     paddingBottom: "5px",

@@ -41,7 +41,7 @@ const Login = ({ login, setLogin }) => {
     <Box className={classes.container}>
       <Paper className={classes.loginBox} elevation={12}>
         <Grid className={classes.logo}>
-          <Logo />
+          <Logo height={100} />
         </Grid>
         <form className={classes.root}>
           <Grid style={{ paddingBottom: "30px" }}>

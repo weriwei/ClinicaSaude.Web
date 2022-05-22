@@ -1,51 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Grid,
-  Paper,
+  Avatar,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardHeader,
+  Collapse,
+  IconButton,
   Typography,
 } from "@material-ui/core";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import useStyles from "./specialityCardClasses";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const SpecialityCard = ({ tittle, description }) => {
+const SpecialityCard = ({ title, description, onClick }) => {
   const classes = useStyles();
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <Grid className={classes.container}>
-      <Paper className={classes.Box} elevation={12}>
-        <Grid
-          container
-          direction="row"
-          alignContent="center"
-          alignItems="center"
-        >
-          <Grid item xs={2}>
-            <img
-              src={
-                "https://yourwikis.com/wp-content/uploads/2020/01/mark-zuck-img.jpg"
-              }
-              alt="img-perfil"
-              style={{ height: 80, borderRadius: "50%" }}
+    <Card className={classes.card}>
+      <CardActionArea>
+        <CardHeader
+          avatar={
+            <Avatar
+              src="https://yourwikis.com/wp-content/uploads/2020/01/mark-zuck-img.jpg"
+              alt="logo"
+              onClick={onClick}
             />
-          </Grid>
-          <Grid item xs={10}>
-            <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.userText}>{tittle}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography className={classes.userText}>
-                  {description}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-        </Grid>
-      </Paper>
-    </Grid>
+          }
+          title={
+            <Typography onClick={onClick} className={classes.title}>
+              {title}
+            </Typography>
+          }
+          action={
+            <IconButton
+              expand={expanded}
+              onClick={() => setExpanded(!expanded)}
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          }
+        />
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography className={classes.userText}>{description}</Typography>
+          </CardContent>
+        </Collapse>
+      </CardActionArea>
+    </Card>
   );
 };
 

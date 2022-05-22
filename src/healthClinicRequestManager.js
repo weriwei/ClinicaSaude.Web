@@ -38,6 +38,11 @@ class healthClinicRequestManager {
     };
     return healthClinicRequestService.dependentSignup(payload);
   };
+
+  getSpecialitys = async () => healthClinicRequestService.getSpecialitys();
+
+  getDoctorsBySpecialityId = async (id) =>
+    healthClinicRequestService.getDoctorsBySpecialityId(id);
 }
 
 export default new healthClinicRequestManager();

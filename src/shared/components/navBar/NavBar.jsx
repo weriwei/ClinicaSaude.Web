@@ -22,12 +22,12 @@ const NavBar = () => {
         direction="row"
         justifyContent="flex-start"
         alignItems="center"
-        spacing={2}
+        spacing={1}
       >
         <Toolbar>
           <Grid item className={classes.container}>
             <Button onClick={goHome}>
-              <Logo />
+              <Logo height={60} />
             </Button>
           </Grid>
 

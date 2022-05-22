@@ -48,6 +48,30 @@ class healthClinicRequestService {
       };
     }
   };
+
+  getSpecialitys = async () => {
+    try {
+      const response = await api.get("api/v1/speciality");
+
+      return response;
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  };
+
+  getDoctorsBySpecialityId = async (id) => {
+    try {
+      const response = await api.get(`api/v1/speciality/doctor/${id}`);
+
+      return response;
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  };
 }
 
 export default new healthClinicRequestService();

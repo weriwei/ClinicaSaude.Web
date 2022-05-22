@@ -56,7 +56,7 @@ const Signup = ({ login, setLogin }) => {
     <Box className={classes.container}>
       <Paper className={classes.signupBox} elevation={12}>
         <Grid className={classes.logo}>
-          <Logo />
+          <Logo height={100} />
         </Grid>
         <form className={classes.root} onSubmit={handleSignup}>
           <Grid style={{ paddingBottom: "20px" }}>

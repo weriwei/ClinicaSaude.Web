@@ -1,40 +1,57 @@
-import { Grid, Paper, Box } from "@material-ui/core";
-import React from "react";
-import SpecialityCard from "@components/specialityCard/SpecialityCard";
+import { Paper, Box, Button } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
 import useStyles from "./appointmentsScheduleClasses";
-import { specialitys } from "@constants/data";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import AppointmentSteper from "@components/AppointmentSteper";
+import SpecialityList from "@components/specialityCard/SpecialityList";
+import {
+  getSpecialitys,
+  getDoctorsBySpecialityId,
+} from "@hooks/useAppointments";
 
 const AppointmentsSchedulePage = () => {
   const classes = useStyles();
+  const [specialitys, setSpecialitys] = useState([]);
+  const [doctors, setDoctors] = useState([]);
+  const [step, setStep] = useState(0);
+
+  const handleSelectSpeciality = async (id) => {
+    const response = await getDoctorsBySpecialityId(id);
+    if (response.data !== []) {
+      setDoctors(response.data);
+      setStep(1);
+    } else setStep(0);
+  };
+
+  const getStepContent = () => {
+    if (step === 0) {
+      return (
+        <SpecialityList
+          specialitys={specialitys}
+          onSelectSpeciality={handleSelectSpeciality}
+        />
+      );
+    } else if (step === 1) {
+      return <Button>Weren Ricardo</Button>;
+    }
+  };
+
+  useEffect(() => {
+    const fetchSpecialitys = async () => {
+      const response = await getSpecialitys();
+      if (response) setSpecialitys(response.data);
+    };
+    fetchSpecialitys();
+  }, []);
+
   return (
-    <Box className={classes.container}>
-      <Paper className={classes.box} elevation={12}>
-        <Grid container direction="row" spacing={2}>
-          <List
-            style={{
-              maxHeight: "80vh",
-              overflow: "auto",
-              width: "100%",
-              height: 500,
-            }}
-          >
-            {specialitys &&
-              specialitys?.map((speciality) => (
-                <Grid item xs={5}>
-                  <ListItem>
-                    <SpecialityCard
-                      tittle={speciality.tittle}
-                      description={speciality.description}
-                    />
-                  </ListItem>
-                </Grid>
-              ))}
-          </List>
-        </Grid>
-      </Paper>
-    </Box>
+    <>
+      <AppointmentSteper step={step} />
+      <Box className={classes.container}>
+        <Paper className={classes.box} elevation={12}>
+          {getStepContent()}
+        </Paper>
+      </Box>
+    </>
   );
 };
 

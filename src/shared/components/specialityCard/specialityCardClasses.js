@@ -1,32 +1,19 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
-  label: {
-    fontSize: "14px",
-    fontFamily: "Comfortaa",
-    textTransform: "none",
-    color: "#5C4DB1",
-  },
-
   userText: {
-    fontSize: "14px",
+    fontSize: "16px",
     fontFamily: "Comfortaa",
     textTransform: "none",
   },
-
-  container: {
-    display: "flex",
+  title: {
+    fontSize: "18px",
+    fontFamily: "Comfortaa",
+    textTransform: "none",
+    textAlign: "center",
   },
-
-  Box: {
-    width: "550px",
-    height: "100px",
-    backgroundColor: "#FBFBFB",
-    borderRadius: 30,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    paddingLeft: "10px",
+  card: {
+    borderRadius: 25,
   },
 }));
 
