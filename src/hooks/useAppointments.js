@@ -13,3 +13,9 @@ export const getDoctorsBySpecialityId = async (id) => {
 
   return response;
 };
+
+export const getSchedulesByDoctorId = async (id) => {
+  const response = await healthClinicRequestManager.getSchedulesByDoctorId(id);
+
+  return response;
+};

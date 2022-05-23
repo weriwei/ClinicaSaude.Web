@@ -27,9 +27,13 @@ const Login = ({ login, setLogin }) => {
     } else setModalErrorLogin(true);
   };
 
+  const handleTryAgain = () => {
+    setModalErrorLogin(false);
+  };
+
   const modalButtons = [
     {
-      onClick: () => setModalErrorLogin(false),
+      onClick: handleTryAgain,
       variant: "contained",
       color: "secondary",
       text: "Tentar Novamente",

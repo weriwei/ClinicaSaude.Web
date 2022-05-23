@@ -33,16 +33,13 @@ const SpecialityCard = ({ title, description, onClick }) => {
             </Typography>
           }
           action={
-            <IconButton
-              expand={expanded}
-              onClick={() => setExpanded(!expanded)}
-            >
+            <IconButton onClick={() => setExpanded(!expanded)}>
               <ExpandMoreIcon />
             </IconButton>
           }
         />
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
+          <CardContent onClick={onClick}>
             <Typography className={classes.userText}>{description}</Typography>
           </CardContent>
         </Collapse>

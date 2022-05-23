@@ -43,6 +43,9 @@ class healthClinicRequestManager {
 
   getDoctorsBySpecialityId = async (id) =>
     healthClinicRequestService.getDoctorsBySpecialityId(id);
+
+  getSchedulesByDoctorId = async (id) =>
+    healthClinicRequestService.getSchedulesByDoctorId(id);
 }
 
 export default new healthClinicRequestManager();

@@ -72,6 +72,18 @@ class healthClinicRequestService {
       };
     }
   };
+
+  getSchedulesByDoctorId = async (id) => {
+    try {
+      const response = await api.get(`api/v1/schedule/${id}`);
+
+      return response;
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  };
 }
 
 export default new healthClinicRequestService();

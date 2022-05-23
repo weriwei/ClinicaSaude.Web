@@ -21,7 +21,7 @@ const DependentsViewPage = () => {
       }
     };
     getDependentsData();
-  }, [getUserId]);
+  }, []);
 
   return (
     <Grid container className={classes.container}>
