@@ -46,6 +46,19 @@ class healthClinicRequestManager {
 
   getSchedulesByDoctorId = async (id) =>
     healthClinicRequestService.getSchedulesByDoctorId(id);
+
+  createAppointment = async (idSchedule, idPatient) => {
+    const payload = {
+      Id_Schedule: idSchedule,
+      Id_Patient: idPatient,
+      Status: "Scheduled",
+    };
+
+    return healthClinicRequestService.createAppointment(payload);
+  };
+
+  getAppointmentsByPatientId = async (id) =>
+    healthClinicRequestService.getAppointmentsByPatientId(id);
 }
 
 export default new healthClinicRequestManager();

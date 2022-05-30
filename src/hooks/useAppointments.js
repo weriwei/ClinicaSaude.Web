@@ -19,3 +19,20 @@ export const getSchedulesByDoctorId = async (id) => {
 
   return response;
 };
+
+export const createAppointment = async (idSchedule, idPatient) => {
+  const response = await healthClinicRequestManager.createAppointment(
+    idSchedule,
+    idPatient
+  );
+
+  return response;
+};
+
+export const getAppointmentsByPatientId = async (idPatient) => {
+  const response = await healthClinicRequestManager.getAppointmentsByPatientId(
+    idPatient
+  );
+
+  return response;
+};

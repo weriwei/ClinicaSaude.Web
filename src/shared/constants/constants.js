@@ -33,6 +33,24 @@ export const genders = [
   },
 ];
 
+export const status = [
+  {
+    id: 0,
+    value: "Scheduled",
+    label: "Marcada",
+  },
+  {
+    id: 1,
+    value: "Finished",
+    label: "Finalizada",
+  },
+  {
+    id: 2,
+    value: "Canceled",
+    label: "Cancelada",
+  },
+];
+
 export const dependentInitialState = {
   name: "",
   documentNumber: "",

@@ -84,6 +84,30 @@ class healthClinicRequestService {
       };
     }
   };
+
+  createAppointment = async (appointment) => {
+    try {
+      const response = await api.post("api/v1/appointment", appointment);
+
+      return response;
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  };
+
+  getAppointmentsByPatientId = async (idPatient) => {
+    try {
+      const response = await api.get(`api/v1/appointment/${idPatient}`);
+
+      return response;
+    } catch (error) {
+      return {
+        error,
+      };
+    }
+  };
 }
 
 export default new healthClinicRequestService();

@@ -22,8 +22,8 @@ const Login = ({ login, setLogin }) => {
     event.preventDefault();
     const response = await requestLogin(userLogin);
     if (response.status === 200) {
-      setAuthenticated(true);
       handleAuthenticate(response);
+      setAuthenticated(true);
     } else setModalErrorLogin(true);
   };
 
