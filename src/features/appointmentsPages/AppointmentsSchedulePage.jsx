@@ -62,8 +62,8 @@ const AppointmentsSchedulePage = () => {
 
     if (response.data.length !== 0) {
       setPatients(response.data);
-      setStep(step + 1);
-    } else setStep(step);
+    }
+    setStep(step + 1);
   };
 
   const handleSelectPatient = async (id) => {
